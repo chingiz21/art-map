@@ -1,0 +1,13 @@
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.small-image {
+    width: 120px;
+    height: 100px;
+    margin: 10px;
+}
