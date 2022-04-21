@@ -39,7 +39,7 @@
     height: 100px;
     left: 10px;
     top: 10px;
-    background: linear-gradient(0deg, rgba(0, 67, 212, 0.3), rgba(139, 145, 244, 0.3)), linear-gradient(180deg, rgba(0, 0, 0, 0) 64.58%, rgba(0, 0, 0, 0.4) 100%);
+    background: linear-gradient(0deg, rgb(249 249 249 / 26%), rgb(255 255 255 / 30%)), linear-gradient(180deg, rgb(0 0 0 / 0%) 64.58%, rgb(0 0 0 / 40%) 100%);
     opacity: 0;
     border-radius: 15px;
     transition: all 0.3s ease 0s;
