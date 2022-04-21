@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavBar from '../../components/NavBar';
 import { MapContainer, Marker, Popup, TileLayer, useMap, useMapEvent } from 'react-leaflet';
 import './MainPage.css';
@@ -6,6 +6,7 @@ import { Button } from '@mui/material';
 import DrawerCustom from '../../components/Drawer/DrawerCustom';
 import Map from '../../components/Map';
 import ImgGallery from '../../components/ImgGallery';
+import axios from 'axios';
 
 type AuthorType = {
     name: string,
