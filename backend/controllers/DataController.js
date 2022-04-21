@@ -6,11 +6,10 @@ class DataController {
 
     async getOne(req, res) {
         try {
-            const { id } = req.params;
+            const {id} = req.query;
             const art = await Data.findOne(
                 {
-                    where: { id },
-                    include: [{ model: Data, as: 'data' }]
+                    where: { id }
                 }
             );
             return res.json(art);
