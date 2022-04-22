@@ -8,6 +8,7 @@ const MainPage = observer(() => {
 
     return (
         <>
+            <NavBar />
             <Map />
             <DrawerCustom />
         </>

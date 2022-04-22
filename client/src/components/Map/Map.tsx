@@ -36,7 +36,7 @@ const Map = observer(() => {
 
     return (
         <MapContainer center={[54.72081, 20.50203]} zoom={9}>
-            <NavBar />
+            
             <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
