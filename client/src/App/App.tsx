@@ -1,12 +1,17 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-import MainPage from '../pages/MainPage'
+import MainPage from '../pages/MainPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Authorization from '../pages/Authorization/Authorization';
 
 const App = () => {
   return (
-    <div>
-      <MainPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<MainPage />} />
+        <Route path='/auth' element={<Authorization />} />
+        <Route path='/login' element={<Authorization />} />
+      </Routes>
+    </Router>
   )
 }
 

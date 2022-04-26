@@ -7,10 +7,6 @@
     padding: 10px;
 }
 
-.drawer__list img {
-    /* height: 300px; */
-}
-
 .drawer__list hr {
     width: 100%;
     background: #9c9c9c;
@@ -53,4 +49,18 @@
 .wrapper__links {
     display: flex;
     margin: 10px 10px 10px 0;
+}
+
+.links__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 24px;
+}
+
+.links__wrapper a {
+    margin-bottom: 5px;
+}
+
+.author__title {
+    margin-bottom: 10px;
 }

@@ -1,19 +1,13 @@
 import { makeAutoObservable } from "mobx";
 
-type AuthorType = {
-    name: string,
-    instagramLink?: string,
-    vkLink?: string
-}
-
 type ArtObjectType = {
     id: number,
     title: string,
     description: string,
     imgs: string[],
     wikiLink: string,
-    mapsLink: string,
-    authorInfo: AuthorType
+    mapsLink: string[],
+    authorInfo: string[]
 }
 
 class DrawerInfo {
