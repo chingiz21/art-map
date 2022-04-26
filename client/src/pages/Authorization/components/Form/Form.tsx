@@ -1,27 +1,33 @@
-import React, { MouseEventHandler } from 'react';
+import React, { useContext } from 'react';
 import './Form.css';
 import { login, registration } from '../../../../http/userApi';
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../../utils/consts';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../../../../index';
 
-const Form: React.FC = () => {
+const Form: React.FC = observer(() => {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
   const location = useLocation();
+  const navigate = useNavigate();
+  const userState = useContext(Context);
   const isLogin = location.pathname == LOGIN_ROUTE;
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
 
     if (isLogin) {
-      const token = await login(email, password);
-      
+      const data = await login(email, password);
+      userState?.user?.setUser(data);
+      navigate('/', { replace: true });
       return;
     }
     
-    const token = await registration(email, username, password);
+    const data = await registration(email, username, password);
   }
 
   return (
@@ -41,5 +47,6 @@ const Form: React.FC = () => {
     </div>
   )
 }
+)
 
 export default Form

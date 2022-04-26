@@ -4,15 +4,11 @@ import SearchInput from './components/SearchInput';
 import User from './components/User';
 import './NavBar.css';
 
-const NavBar = () => {
-
-  const onClickHandler = () => {
-    console.log('grid')
-  }
+const NavBar: React.FC = () => {
 
   return (
 
-    <Grid container spacing={2} onClick={onClickHandler}>
+    <Grid container spacing={2}>
       <Grid item xs={3}>
         <MenuItem>
           LOGO
