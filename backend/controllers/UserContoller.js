@@ -24,7 +24,7 @@ class UserController {
 
         const hashPasswd = await bcrypt.hash(password, 5);
         const user = await User.create({ email, password: hashPasswd, username, role });
-        const jToken = generateJwtToken(user.id, user.email, user.role);
+        const jToken = generateJwtToken(user.id, user.username, user.email, user.role);
 
         return res.json({ jToken });
 
@@ -32,6 +32,7 @@ class UserController {
     async login(req, res, next) {
         const { email, password } = req.body;
         const user = await User.findOne({ where: { email } });
+        console.log(user);
 
         if (!user) {
             return next(ApiError.internal("No such user"))
@@ -42,14 +43,14 @@ class UserController {
             return next(ApiError.forbidden('Wrong password'));
         }
 
-        const jToken = generateJwtToken(user.id, user.email, user.role);
+        const jToken = generateJwtToken(user.id, user.email, user.username, user.role);
 
         return res.json({ jToken });
 
     }
 
     async check(req, res, next) {
-        const token = generateJwtToken(req.user.id, req.user.email, req.user.role);
+        const token = generateJwtToken(req.user.id, req.user.username, req.user.email, req.user.role);
         return res.json({ token })
     }
 }
