@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 import './Form.css';
-import { registration } from '../../../../http/userApi';
+import { login, registration } from '../../../../http/userApi';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { LOGIN_ROUTE } from '../../../../utils/consts';
@@ -14,9 +14,14 @@ const Form: React.FC = () => {
 
   const signIn = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log('click')
-    const response = await registration(email, username, password);
-    console.log(response);
+
+    if (isLogin) {
+      const token = await login(email, password);
+      
+      return;
+    }
+    
+    const token = await registration(email, username, password);
   }
 
   return (
@@ -24,14 +29,14 @@ const Form: React.FC = () => {
         <h1>{isLogin? 'Вход' : 'Регистрация'}</h1>
         <form className='auth_form'>
             <input id='email' type="text" placeholder='Введите email' onChange={e => setEmail(e.target.value)} />
-            <input id='username' type="text" placeholder='Введите имя пользователя' onChange={e => setUsername(e.target.value)} />
+            {isLogin ? null : <input id='username' type="text" placeholder='Введите имя пользователя' onChange={e => setUsername(e.target.value)} />}
             <input id='password' type="password" placeholder='Введите пароль' onChange={e => setPassword(e.target.value)} />
             <button className='btn btn-login' onClick={e => signIn(e)}>{isLogin ? 'Войти' : 'Создать аккаунт'}</button>
         </form>
         <div className="links">
-            <a href="">{isLogin ? 'Нет аккаунта?' : 'Есть аккаунт?'}</a>
+            <a href={isLogin ? '/auth' : '/login'} >{isLogin ? 'Нет аккаунта?' : 'Есть аккаунт?'}</a>
             <span> / </span>
-            <a href="">Забыли пароль?</a>
+            <a href="#">Забыли пароль?</a>
         </div>
     </div>
   )
