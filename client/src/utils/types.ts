@@ -3,7 +3,8 @@ import userState from '../store/userState';
 export type User = {
     email: string,
     id: number,
-    role: string
+    role: string,
+    username: string
 };
 
 export type ContextType = {

@@ -10,7 +10,7 @@ const User: React.FC = observer(() => {
 
   return (
     <div>
-      <h1>{context?.user?.user?.email}</h1>
+      <h1>{context?.user?.user?.username}</h1>
     </div>
   )
 }

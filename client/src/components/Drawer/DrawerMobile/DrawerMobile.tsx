@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Drawer from '@mui/material/Drawer';
-import './DrawerCustom.css';
+import './DrawerMobile.css';
 import { observer } from 'mobx-react-lite';
-import buttonState from '../../store/buttonState';
-import ImgGallery from '../../components/ImgGallery';
-import drawerInfo from '../../store/drawerInfo';
+import buttonState from '../../../store/buttonState';
+import ImgGallery from '../../../components/ImgGallery';
+import drawerInfo from '../../../store/drawerInfo';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkIcon from '@mui/icons-material/Link';
 
@@ -34,8 +34,8 @@ const DrawerCustom: React.FC = observer(() => {
         anchor='left'
         open={buttonState.drawerState}
         onClose={() => buttonState.toggleDrawer()}
-        PaperProps={{ sx: { width: 450 } }}
-        sx={{display: { xs: 'none', sm: 'block' }}}
+        PaperProps={{ sx: { width: 300 } }}
+        sx={{display: { xs: 'block', sm: 'none' }}}
       >
         <ul className='drawer__list'>
           <ImgGallery imgs={drawerArtItem?.imgs} />
