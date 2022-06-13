@@ -2,7 +2,7 @@ import { makeAutoObservable, observable, makeObservable, action } from 'mobx';
 
 class ImgState {
 
-    // selectedImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Valdau.jpg/1280px-Valdau.jpg';
+    // selectedImage = '';
 
     selectedImage: string = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Valdau.jpg/1280px-Valdau.jpg';
 
